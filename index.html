@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Essentia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: 'ITCAvantGardeStd';
+        src: url('fonts/ITCAvantGardeStd-Bk.otf');
+        font-weight: 400;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'ITCAvantGardeStd';
+        src: url('fonts/ITCAvantGardeStd-Bold.otf');
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      @keyframes es-pulse-icon-1 {
+        0% {
+          transform: scale(1);
+        }
+        20% {
+          transform: scale(1.1);
+        }
+        40% {
+          transform: scale(1);
+        }
+        60% {
+          transform: scale(1);
+        }
+        80% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes es-pulse-icon-2 {
+        0% {
+          transform: scale(1);
+        }
+        20% {
+          transform: scale(1);
+        }
+        40% {
+          transform: scale(1.1);
+        }
+        60% {
+          transform: scale(1);
+        }
+        80% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      @keyframes es-pulse-icon-3 {
+        0% {
+          transform: scale(1);
+        }
+        20% {
+          transform: scale(1);
+        }
+        40% {
+          transform: scale(1);
+        }
+        60% {
+          transform: scale(1.1);
+        }
+        80% {
+          transform: scale(1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      #es-essentia.es-essentia {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.2;
+        max-width: 790px;
+        margin: 0 auto;
+        padding: 0;
+        overflow: hidden;
+        color: #000;
+        background: #fff;
+        /* Track */
+        /* Handle */
+      }
+      #es-essentia.es-essentia ::-webkit-scrollbar {
+        width: 12px !important;
+      }
+      #es-essentia.es-essentia ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+        -webkit-border-radius: 10px !important;
+        -webkit-overflow-scrolling: auto;
+        border-radius: 10px !important;
+      }
+      #es-essentia.es-essentia ::-webkit-scrollbar-thumb {
+        -webkit-overflow-scrolling: auto;
+        border-radius: 10px !important;
+        background: #506f13 !important;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
+      }
+      #es-essentia.es-essentia ::-webkit-scrollbar-thumb:window-inactive {
+        -webkit-overflow-scrolling: auto;
+        border-radius: 10px !important;
+        background: #506f13 !important;
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5) !important;
+        -webkit-overflow-scrolling: auto;
+      }
+      #es-essentia.es-essentia * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+      #es-essentia.es-essentia img,
+      #es-essentia.es-essentia picture {
+        max-width: 100%;
+        display: block;
+      }
+      #es-essentia.es-essentia p,
+      #es-essentia.es-essentia h2,
+      #es-essentia.es-essentia h3,
+      #es-essentia.es-essentia h4,
+      #es-essentia.es-essentia h5,
+      #es-essentia.es-essentia li {
+        line-height: inherit;
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+      }
+
+      #es-essentia.es-essentia .es-kv {
+        position: relative;
+        margin-bottom: 100px;
+        margin-bottom: 32%;
+      }
+      #es-essentia.es-essentia .es-kv__kv {
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+      #es-essentia.es-essentia .es-kv__kv--desktop {
+        display: none;
+      }
+      #es-essentia.es-essentia .es-kv__logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 14px;
+        z-index: 2;
+        max-width: 55%;
+      }
+      #es-essentia.es-essentia .es-kv__new {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        max-width: 40%;
+      }
+      #es-essentia.es-essentia .es-kv__badge {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        max-width: 40%;
+        transform: translateY(-50%);
+      }
+      #es-essentia.es-essentia .es-kv__title {
+        padding: 14px;
+        position: absolute;
+        bottom: 50%;
+        left: 0;
+        color: #fff;
+        font-size: 32px;
+        text-transform: uppercase;
+        font-style: italic;
+        font-weight: 500;
+        transform: translateY(55%);
+      }
+      #es-essentia.es-essentia .es-kv__packshot {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        max-width: 68%;
+      }
+      #es-essentia.es-essentia .es-nav {
+        display: none;
+      }
+      #es-essentia.es-essentia .es-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px 24px;
+        justify-content: center;
+        margin-bottom: 32px;
+      }
+      #es-essentia.es-essentia .es-features__feature {
+        max-width: 312px;
+        width: calc(50% - 24px);
+      }
+      #es-essentia.es-essentia .es-features__title {
+        font-weight: 500;
+        margin: 8px 0;
+        font-size: 16px;
+      }
+      #es-essentia.es-essentia .es-features__text {
+        font-size: 14px;
+      }
+      #es-essentia.es-essentia .es-articles {
+        margin: 20px 0;
+        padding: 20px 10px;
+        background-image: url(./img/dosage-bg.webp);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+      #es-essentia.es-essentia .es-articles__title {
+        color: #fff;
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
+      #es-essentia.es-essentia .es-articles__text {
+        color: #fff;
+        text-align: center;
+        max-width: 90%;
+        margin: 0 auto;
+        font-size: 16px;
+      }
+      #es-essentia.es-essentia .es-articles__ctn {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px 30px;
+        margin-top: 20px;
+      }
+      #es-essentia.es-essentia .es-articles__single {
+        max-width: 150px;
+        min-width: 150px;
+        min-height: 250px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px 10px;
+      }
+      #es-essentia.es-essentia .es-articles__iconCtn {
+        background: rgb(227, 231, 147);
+        background: radial-gradient(
+          circle,
+          rgb(227, 231, 147) 16%,
+          rgba(71, 169, 214, 0) 64%
+        );
+        border-radius: 50%;
+        width: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #es-essentia.es-essentia .es-articles__icon {
+        width: 100%;
+        margin: 20px auto;
+        display: block;
+      }
+
+      #es-essentia.es-essentia .es-articles__name {
+        text-align: center;
+        color: #fff;
+        font-size: 15px;
+      }
+      #es-essentia.es-essentia .es-articles__link {
+        display: block;
+        max-width: 150px;
+        text-decoration: none;
+        font-size: 16px;
+        color: #fff;
+        border: 2px solid #fff;
+        text-align: center;
+        padding: 8px 14px;
+        border-radius: 50px;
+        font-weight: 500;
+        margin: 14px auto;
+        transition: 0.4s ease-in-out;
+      }
+      #es-essentia.es-essentia .es-articles__link:hover {
+        color: #425505;
+        background-color: #fff;
+        border: 2px solid #425505;
+      }
+      #es-essentia.es-essentia .es-support {
+        position: relative;
+        background: url(img/slide-bg.webp);
+        background-size: cover;
+        min-height: 220px;
+        margin-bottom: 10px;
+      }
+      #es-essentia.es-essentia .es-support .swiper-button-prev,
+      #es-essentia.es-essentia .es-support .swiper-button-next {
+        display: none;
+      }
+      #es-essentia.es-essentia .es-support__content {
+        padding: 12px;
+        padding-bottom: 48px;
+        padding-top: 0;
+      }
+      #es-essentia.es-essentia .es-support__slide:not(:last-child) {
+        margin-bottom: 8px;
+      }
+      #es-essentia.es-essentia .es-support__title {
+        padding: 12px;
+        font-weight: 500;
+        color: #fff;
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+      #es-essentia.es-essentia .es-support__items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      #es-essentia.es-essentia .es-support__items:not(:last-child) {
+        margin-bottom: 16px;
+      }
+      #es-essentia.es-essentia .es-support__item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      #es-essentia.es-essentia .es-support__item {
+        gap: 10px;
+      }
+      #es-essentia.es-essentia .es-support__item--full {
+        width: 100%;
+      }
+      #es-essentia.es-essentia .es-support__icon {
+        max-width: 45px;
+      }
+      #es-essentia.es-essentia .es-support__icon--big {
+        max-width: 57px;
+      }
+      #es-essentia.es-essentia .es-support__text,
+      #es-essentia.es-essentia .es-support__desc {
+        color: #fff;
+      }
+      #es-essentia.es-essentia .es-support__desc {
+        font-weight: 300;
+      }
+      #es-essentia.es-essentia .es-support__subtitle {
+        color: #fff;
+        font-size: 20px;
+        margin-bottom: 8px;
+      }
+      #es-essentia.es-essentia .es-support__description {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      #es-essentia.es-essentia .es-support__square {
+        max-width: 16px;
+      }
+      #es-essentia.es-essentia .es-dosage {
+        padding: 12px;
+        background: url(img/slide-bg.webp);
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        margin: 50px 0;
+      }
+      #es-essentia.es-essentia .es-dosage__btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+      #es-essentia.es-essentia .es-dosage__arrow {
+        font-size: 22px;
+        color: #fff;
+        font-weight: 500;
+      }
+      #es-essentia.es-essentia .es-dosage__title {
+        font-weight: 500;
+        font-size: 22px;
+        color: #fff;
+        margin-bottom: 16px;
+      }
+      #es-essentia.es-essentia .es-dosage__text {
+        color: #fff;
+        font-weight: 300;
+        margin-bottom: 20px;
+      }
+      #es-essentia.es-essentia .es-dosage__mainCtn {
+        display: flex;
+        flex-direction: column;
+      }
+      #es-essentia.es-essentia .es-hide {
+        display: none;
+      }
+      #es-essentia.es-essentia .es-dosage__items {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      #es-essentia.es-essentia .es-dosage__item {
+        display: flex;
+        gap: 8px;
+      }
+      #es-essentia.es-essentia .es-dosage__content {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      #es-essentia.es-essentia .es-dosage__img {
+        max-width: 50px;
+      }
+      #es-essentia.es-essentia .es-dosage__square {
+        max-width: 16px;
+      }
+      #es-essentia.es-essentia .es-dosage__desc {
+        position: relative;
+        color: #fff;
+        padding-left: 16px;
+      }
+      #es-essentia.es-essentia .es-dosage__desc::before {
+        content: '';
+        position: absolute;
+        top: 6px;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background: #ffae00;
+        transform: rotate(45deg);
+      }
+      #es-essentia.es-essentia .es-hide {
+        display: none;
+      }
+      #es-essentia.es-essentia .es-info__btn {
+        background: url(img/slide-bg.webp);
+        padding: 14px;
+      }
+
+      #es-essentia.es-essentia .es-info__nav.swiper-wrapper {
+        padding: 14px;
+        display: none;
+        grid-template-columns: 50% 50%;
+        gap: 14px;
+      }
+      #es-essentia.es-essentia .es-info__nav-item {
+        padding: 4px;
+        border: 2px solid #506f13;
+        width: 95% !important;
+        max-width: none;
+        height: auto;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        margin: 0 !important;
+        color: #000;
+      }
+
+      #es-essentia.es-essentia .es-info__nav-text {
+        text-align: center;
+      }
+      #es-essentia.es-essentia .es-info__link {
+        text-decoration: none;
+        text-align: center;
+        color: #000;
+        cursor: pointer;
+      }
+
+      #es-essentia.es-essentia .es-info__nav-text {
+        text-align: center;
+      }
+      #es-essentia.es-essentia .es-info__up {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px;
+        padding-top: 0;
+      }
+      #es-essentia.es-essentia .es-info__img {
+        max-width: calc(50% - 7px);
+      }
+      #es-essentia.es-essentia .es-info__img--desktop {
+        display: none;
+      }
+      #es-essentia.es-essentia .es-info__desc {
+        font-size: 14px;
+        color: #506f13;
+      }
+      #es-essentia.es-essentia .es-info__down {
+        background: url(img/slide-2-bg.webp) 100% 100%;
+        background-size: cover;
+        padding: 20px 14px;
+        padding-bottom: 26px;
+      }
+      #es-essentia.es-essentia .es-info__down--doctor {
+        text-align: center;
+        padding: 10px 10px;
+        padding-bottom: 20px;
+      }
+      #es-essentia.es-essentia .es-info__content {
+        align-self: center;
+        margin: 0 auto;
+      }
+      #es-essentia.es-essentia .es-info__wrapper {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-height: 240px;
+      }
+      #es-essentia.es-essentia .es-info__title {
+        color: #fff;
+        font-size: 22px;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+      #es-essentia.es-essentia .es-info__text {
+        color: #fff;
+        font-weight: 300;
+      }
+      #es-essentia.es-essentia .es-info__text--doctor {
+        max-width: 460px;
+      }
+      #es-essentia.es-essentia .es-info__asset {
+        max-width: calc(50% - 7px);
+      }
+      #es-essentia.es-essentia .es-info__asset--desktop {
+        display: none;
+      }
+      #es-essentia.es-essentia .es-table__title {
+        color: #506f13;
+        font-weight: 500;
+        text-align: center;
+        padding: 14px;
+        font-size: 20px;
+      }
+      #es-essentia.es-essentia .es-table__wrapper {
+        overflow-x: scroll;
+        padding-bottom: 15px;
+      }
+      #es-essentia.es-essentia .es-table__green--top {
+        border-top: 5px solid #ccc926;
+        border-left: 5px solid #ccc926;
+        border-right: 5px solid #ccc926;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+      #es-essentia.es-essentia .es-table__green--sides {
+        border-left: 5px solid #ccc926;
+        border-right: 5px solid #ccc926;
+      }
+      #es-essentia.es-essentia .es-table__green--bottom {
+        border-left: 5px solid #ccc926;
+        border-right: 5px solid #ccc926;
+        border-bottom: 5px solid #ccc926 !important;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+      #es-essentia.es-essentia .es-table__orange--topLeft {
+        border-top: 5px solid #f29400;
+        border-left: 5px solid #f29400;
+        border-top-left-radius: 20px;
+      }
+      #es-essentia.es-essentia .es-table__orange--topRight {
+        border-top: 5px solid #f29400;
+        border-right: 5px solid #f29400;
+        border-top-right-radius: 20px;
+      }
+      #es-essentia.es-essentia .es-table__orange--sideLeft {
+        border-left: 5px solid #f29400;
+      }
+      #es-essentia.es-essentia .es-table__orange--sideRight {
+        border-right: 5px solid #f29400;
+      }
+      #es-essentia.es-essentia .es-table__orange--bottomLeft {
+        border-left: 5px solid #f29400;
+        border-bottom: 5px solid #f29400 !important;
+        border-bottom-left-radius: 20px;
+      }
+      #es-essentia.es-essentia .es-table__orange--bottomRight {
+        border-right: 5px solid #f29400;
+        border-bottom: 5px solid #f29400 !important;
+        border-bottom-right-radius: 20px;
+      }
+      #es-essentia.es-essentia .es-table table {
+        border-collapse: collapse;
+        max-width: none;
+        min-width: 600px;
+      }
+      #es-essentia.es-essentia .es-table table tbody tr td:first-child {
+        background: #eaeaea;
+      }
+      #es-essentia.es-essentia
+        .es-table
+        table
+        tbody
+        tr:last-child
+        td:first-child {
+        background: #fff;
+      }
+      #es-essentia.es-essentia .es-table td {
+        padding: 8px 14px;
+        border-top: 1px solid #dddddd;
+        border-bottom: 1px solid #dddddd;
+        text-align: center;
+      }
+      #es-essentia.es-essentia .es-table__name {
+        padding: 14px;
+      }
+      #es-essentia.es-essentia .es-table__name--green {
+        color: #425505;
+      }
+      #es-essentia.es-essentia .es-table__name--orange {
+        color: #fc7e00;
+      }
+      #es-essentia.es-essentia .es-table__name--red {
+        color: #92250b;
+      }
+      #es-essentia.es-essentia .es-table__emptyColumn {
+        width: 1spx;
+      }
+      #es-essentia.es-essentia .es-table__img {
+        margin: 0 auto;
+        max-width: 100px;
+        padding: 5px;
+      }
+      #es-essentia.es-essentia .es-table__link {
+        display: block;
+        max-width: 100px;
+        text-decoration: none;
+        color: #000;
+        border: 2px solid #000;
+        text-align: center;
+        padding: 8px 14px;
+        border-radius: 50px;
+        font-weight: 500;
+        margin: 14px auto;
+      }
+      #es-essentia.es-essentia .es-comp {
+        background: url(img/comp-bg.webp) 100% 100%;
+        background-size: cover;
+        padding: 14px;
+      }
+      #es-essentia.es-essentia .es-comp__content--desktop {
+        display: none;
+      }
+      #es-essentia.es-essentia .es-comp__btn {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+      #es-essentia.es-essentia .es-comp__arrow {
+        font-size: 22px;
+        color: #fff;
+        font-weight: 500;
+      }
+      #es-essentia.es-essentia .es-comp__hiddenCtn {
+        display: block;
+        margin-top: 50px;
+      }
+      #es-essentia.es-essentia .es-hide {
+        display: none;
+      }
+      #es-essentia.es-essentia .es-comp__title {
+        font-size: 22px;
+        margin-bottom: 20px;
+        color: #fff;
+        font-weight: 500;
+      }
+      #es-essentia.es-essentia .es-comp__items {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+      #es-essentia.es-essentia .es-comp__icon {
+        max-width: 60px;
+      }
+      #es-essentia.es-essentia .es-comp__desc {
+        color: #fff;
+        text-align: center;
+      }
+      #es-essentia.es-essentia .es-comp__wrapper {
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+      #es-essentia.es-essentia .es-comp__text {
+        color: #fff;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+      #es-essentia.es-essentia .es-comp__mg {
+        position: relative;
+        margin-right: -115px;
+        z-index: 1;
+      }
+      #es-essentia.es-essentia .es-comp__img {
+        position: relative;
+        top: 0px;
+        right: -20%;
+      }
+      #es-essentia.es-essentia .es-desc {
+        padding: 10px 14px;
+      }
+      #es-essentia.es-essentia .es-desc__item {
+        color: #506f13;
+        font-weight: 300;
+        margin: 5px 0;
+        font-size: 16px;
+      }
+      #es-essentia.es-essentia .es-disclaimer {
+        padding: 14px;
+      }
+      #es-essentia.es-essentia .es-disclaimer__title {
+        font-size: 18px;
+        margin-bottom: 8px;
+        color: #506f13;
+        font-weight: 500;
+      }
+      #es-essentia.es-essentia .es-disclaimer__list {
+        list-style: none;
+      }
+      #es-essentia.es-essentia .es-disclaimer__item {
+        color: #506f13;
+        font-weight: 300;
+      }
+      #es-essentia.es-essentia .es-disclaimer__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      #es-essentia.es-essentia .es-disclaimer__mat {
+        color: #506f13;
+        font-weight: 500;
+        font-size: 18px;
+        margin-left: 20px;
+      }
+
+      /* #es-essentia.es-essentia .es-video {
+  min-width: 320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+#es-essentia.es-essentia .es-video__videoCnt {
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+#es-essentia.es-essentia .es-video__iframe {
+  width: 100%;
+  min-height: 450px;
+  z-index: 1;
+} */
+
+      @media screen and (min-width: 768px) {
+        #es-essentia.es-essentia .es-kv {
+          margin-bottom: 0;
+        }
+        #es-essentia.es-essentia .es-kv__kv--mobile {
+          display: none;
+        }
+        #es-essentia.es-essentia .es-kv__kv--desktop {
+          display: block;
+          -o-object-fit: cover;
+          object-fit: cover;
+          min-height: 500px;
+        }
+        #es-essentia.es-essentia .es-kv__title {
+          font-size: 56px;
+          padding: 40px;
+          bottom: 0;
+          transform: translateY(0);
+        }
+        #es-essentia.es-essentia .es-kv__packshot {
+          bottom: 35px;
+          left: auto;
+          right: 40px;
+          transform: translate(0, 0);
+          max-width: 380px;
+        }
+        #es-essentia.es-essentia .es-kv__badge {
+          top: 120px;
+          right: 13%;
+          max-width: 180px;
+          transform: translateY(0);
+        }
+        #es-essentia.es-essentia .es-nav {
+          display: flex;
+          padding: 14px;
+          gap: 14px 0;
+        }
+        #es-essentia.es-essentia .es-nav__item {
+          padding: 8px;
+          flex: 1;
+          border: 2px solid #506f13;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+        #es-essentia.es-essentia .es-nav__item:not(:last-child) {
+          border-right: none;
+        }
+        #es-essentia.es-essentia .es-nav__item:hover {
+          background: #506f13;
+        }
+        #es-essentia.es-essentia .es-nav__item:hover .es-nav__link {
+          color: #fff;
+        }
+        #es-essentia.es-essentia .es-nav__link {
+          font-weight: 500;
+          text-align: center;
+          color: #000;
+          text-decoration: none;
+        }
+        #es-essentia.es-essentia .es-features__title {
+          font-size: 16px;
+        }
+        #es-essentia.es-essentia .es-features__text {
+          font-size: 14px;
+        }
+        #es-essentia.es-essentia .es-features__feature {
+          max-width: 160px;
+          width: calc(50% - 24px);
+        }
+        #es-essentia.es-essentia .es-support {
+          background: url(img/support-bg-1.webp) no-repeat 100% 100%;
+          background-size: cover;
+          background-position: 58%;
+        }
+        #es-essentia.es-essentia .es-support .swiper-button-prev,
+        #es-essentia.es-essentia .es-support .swiper-button-next {
+          display: flex;
+        }
+        #es-essentia.es-essentia .es-support__content {
+          padding-bottom: 15px;
+        }
+        #es-essentia.es-essentia .es-support__title {
+          font-size: 28px;
+        }
+        #es-essentia.es-essentia .es-support__item {
+          width: 100%;
+        }
+        #es-essentia.es-essentia .es-support__item--single {
+          align-items: start;
+        }
+        #es-essentia.es-essentia .es-support__text {
+          font-size: 22px;
+          max-width: 30%;
+        }
+        #es-essentia.es-essentia .es-support__icon {
+          max-width: 80px;
+        }
+        #es-essentia.es-essentia .es-support__text-wrapper {
+          padding-top: 10px;
+        }
+        #es-essentia.es-essentia .es-support__subtitle {
+          font-size: 18px;
+          max-width: 50%;
+        }
+        #es-essentia.es-essentia .es-support__desc {
+          max-width: 40%;
+          font-size: 16px;
+        }
+        #es-essentia.es-essentia .es-support__square {
+          position: relative;
+          top: 8px;
+        }
+        #es-essentia.es-essentia .es-dosage {
+          background: url(img/dosage-bg-dt.webp) 100% 100% no-repeat;
+          background-size: cover;
+          display: flex;
+        }
+        #es-essentia.es-essentia .es-dosage__title {
+          font-size: 36px;
+        }
+        #es-essentia.es-essentia .es-dosage__arrow {
+          font-size: 26px;
+        }
+        #es-essentia.es-essentia .es-dosage__mainCtn {
+          display: flex;
+          flex-direction: row;
+        }
+        #es-essentia.es-essentia .es-hide {
+          display: none;
+        }
+        #es-essentia.es-essentia .es-dosage__wrapper {
+          max-width: 45%;
+        }
+        #es-essentia.es-essentia .es-dosage__items {
+          flex-direction: column;
+        }
+        #es-essentia.es-essentia .es-dosage__text {
+          max-width: 70%;
+          font-size: 20px;
+        }
+        #es-essentia.es-essentia .es-dosage__img {
+          max-width: 100px;
+        }
+        #es-essentia.es-essentia .es-dosage__items {
+          padding: 24px 0;
+          gap: 32px;
+        }
+        #es-essentia.es-essentia .es-dosage__desc {
+          font-size: 24px;
+        }
+        #es-essentia.es-essentia .es-dosage__hide {
+          display: none;
+        }
+        #es-essentia.es-essentia .es-info .swiper-button-next,
+        #es-essentia.es-essentia .es-info .swiper-button-prev {
+          display: flex;
+        }
+        #es-essentia.es-essentia .es-info__nav.swiper-wrapper {
+          display: grid;
+          padding: 24px;
+          grid-template-columns: 23% 23% 23% 23%;
+        }
+        #es-essentia.es-essentia .es-info__up {
+          padding: 0;
+        }
+        #es-essentia.es-essentia .es-info__down {
+          background: url(img/dosage-bg-dt.webp) no-repeat 100% 100%;
+          background-position: left;
+          background-size: cover;
+        }
+        #es-essentia.es-essentia .es-info__img--mobile {
+          display: none;
+        }
+        #es-essentia.es-essentia .es-info__img--desktop {
+          display: block;
+        }
+        #es-essentia.es-essentia .es-info__desc {
+          font-size: 20px;
+        }
+        #es-essentia.es-essentia .es-info__asset--mobile {
+          display: none;
+        }
+        #es-essentia.es-essentia .es-info__asset--desktop {
+          display: block;
+        }
+        #es-essentia.es-essentia .es-info__title {
+          font-size: 28px;
+        }
+        #es-essentia.es-essentia .es-info__text {
+          font-size: 20px;
+        }
+        #es-essentia.es-essentia .es-comp {
+          padding-bottom: 0;
+        }
+        #es-essentia.es-essentia .es-comp__title {
+          font-size: 36px;
+        }
+        #es-essentia.es-essentia .es-comp__content--mobile {
+          display: none;
+        }
+        #es-essentia.es-essentia .es-comp__content--desktop {
+          display: block;
+        }
+        #es-essentia.es-essentia .es-comp__arrow {
+          font-size: 26px;
+          color: #fff;
+          font-weight: 500;
+        }
+        #es-essentia.es-essentia .es-comp__items {
+          justify-content: space-around;
+          gap: 24px;
+          margin-bottom: 16px;
+        }
+        #es-essentia.es-essentia .es-comp__secondCtn {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+        }
+        #es-essentia.es-essentia .es-comp__item {
+          min-height: 150px;
+        }
+        #es-essentia.es-essentia .es-comp__icon {
+          max-width: 104px;
+        }
+        #es-essentia.es-essentia .es-comp__desc {
+          font-size: 24px;
+        }
+        #es-essentia.es-essentia .es-comp__text {
+          font-size: 20px;
+        }
+        #es-essentia.es-essentia .es-comp__mg {
+          min-width: 300px;
+          padding: 0px 20px;
+        }
+        #es-essentia.es-essentia .es-comp__img {
+          right: 0;
+          margin-top: -27px;
+          max-width: 400px;
+        }
+        #es-essentia.es-essentia .es-comp__texts {
+          margin-right: 0;
+        }
+        #es-essentia.es-essentia .es-disclaimer__title {
+          font-size: 28px;
+        }
+        #es-essentia.es-essentia .es-disclaimer__item {
+          font-size: 14px;
+        }
+        #es-essentia.es-essentia .es-desc__item {
+          font-size: 14px;
+        }
+      } /*# sourceMappingURL=style.css.map */
+    </style>
+  </head>
+  <body>
+    <div class="es-essentia" id="es-essentia">
+      <div class="es-kv">
+        <img
+          src="img/kv-mb.webp"
+          alt="Kobieta z mężczyzną jadą na rowerze; jeśli odczuwasz chroniczne zmęczenie, Essentia Proactive pomoże wspierać prawidłowe funkcjonowanie wątroby."
+          class="es-kv__kv es-kv__kv--mobile"
+        />
+        <img
+          src="img/kv-dt.webp"
+          alt="Kobieta z mężczyzną jadą na rowerze; jeśli odczuwasz chroniczne zmęczenie, Essentia Proactive pomoże wspierać prawidłowe funkcjonowanie wątroby."
+          class="es-kv__kv es-kv__kv--desktop"
+        />
+        <img src="img/logo.webp" alt="Essentia Proactive" class="es-kv__logo" />
+        <img src="img/new.webp" alt="Nowość" class="es-kv__new" />
+
+        <h3 class="es-kv__title">
+          Czuj się<br />
+          młodziej,<br />
+          dłużej
+        </h3>
+        <img
+          src="img/packshot.webp"
+          alt="Essentia Proactive"
+          class="es-kv__packshot"
+        />
+      </div>
+
+      <div class="es-nav">
+        <div class="es-nav__item">
+          <a class="es-nav__link" data-href="#essentia"
+            >Odkryj Essentia Proactive</a
+          >
+        </div>
+        <div class="es-nav__item">
+          <a class="es-nav__link" data-href="#korzysci">Korzyści dla wątroby</a>
+        </div>
+        <div class="es-nav__item">
+          <a class="es-nav__link" data-href="#styl">Zachowaj swój styl życia</a>
+        </div>
+        <div class="es-nav__item">
+          <a class="es-nav__link" data-href="#stosowanie">Stosowanie</a>
+        </div>
+        <div class="es-nav__item">
+          <a class="es-nav__link" data-href="#sklad">Składniki</a>
+        </div>
+        <div class="es-nav__item">
+          <a class="es-nav__link" data-href="#preparaty"
+            >Preparaty wspierające wątrobę</a
+          >
+        </div>
+      </div>
+
+      <div id="essentia" class="es-features">
+        <div class="es-features__feature">
+          <img
+            src="img/feature-1.webp"
+            alt="Kobieta pije smoothie; dieta przeciwzapalna i niskotłuszczowa oraz zdrowe tłuszcze pozytywnie wpływają na zdrowie Twoje i Twojej wątroby."
+            class="es-features__img"
+          />
+          <p class="es-features__title">Zachowaj zdrową wątrobę na dłużej</p>
+          <p class="es-features__text">
+            Twoja wątroba odpowiada m.in za&nbsp;procesy energetyczne
+            i&nbsp;sprawia, że&nbsp;czujesz się <br />
+            w pełni sił. Essentia proactive wspiera prawidłowe funkcjonowanie
+            wątroby.<sup>1</sup>
+          </p>
+        </div>
+        <div class="es-features__feature">
+          <img
+            src="img/feature-2.webp"
+            alt="Ilustracja wątroby: składniki zawarte w suplemencie diety Essentia Proactive wspomagają proces detoksykacji i metabolizm tłuszczów."
+            class="es-features__img"
+          />
+          <p class="es-features__title">
+            Wspomaga detoksykację oraz metabolizm tluszczów<sup>1,2</sup>
+          </p>
+          <p class="es-features__text">
+            Zdrowa wątroba radzi sobie z&nbsp;metabolizmem tłuszczów
+            i&nbsp;procesem detoksykacji w&nbsp;organizmie.<sup>3</sup>
+            Wspomagaj ją&nbsp;codziennie suplementując Essentię Proactive
+          </p>
+        </div>
+        <div class="es-features__feature">
+          <img
+            src="img/feature-3.webp"
+            alt="Trzy sześciokąty: cholina wspomaga detoksykację a antyoksydanty (witaminy C i E) chronią komórki przed stresem oksydacyjnym."
+            class="es-features__img"
+          />
+          <p class="es-features__title">Unikalny skład<sup>2,4</sup></p>
+          <p class="es-features__text">
+            Cholina zawarta w&nbsp;suplemencie diety pomaga w&nbsp;utrzymaniu
+            prawidłowego funkcjonowania wątroby, w&nbsp;tym procesu detoksykacji
+            oraz&nbsp;wspiera utrzymanie prawidłowego metabolizmu tłuszczów.
+            Witaminy C i&nbsp;E chronią przed stresem oksydacyjnym.
+          </p>
+        </div>
+        <div class="es-features__feature">
+          <img
+            src="img/feature-4.webp"
+            alt="Zbliżenie dłoni kobiety ze szklanką wody i dwiema kapsułkami Essentia Proactive, który proaktywnie wspomaga zdrowie wątroby."
+            class="es-features__img"
+          />
+          <p class="es-features__title">Na 2 tygodnie stosowania</p>
+          <p class="es-features__text">
+            Opakowanie Essentia Proactive&nbsp;wystarcza na&nbsp;dwutygodniowe
+            stosowanie przy&nbsp;wygodnym dawkowaniu
+            1x&nbsp;dziennie&nbsp;(2&nbsp;kapsułki)
+          </p>
+        </div>
+      </div>
+
+      <div id="korzysci" class="es-support">
+        <p class="es-support__title">
+          Proaktywne wsparcie prawidłowego <br />
+          funkcjonowania:
+        </p>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="es-support__content">
+              <div class="es-support__items">
+                <div class="es-support__item es-support__item--single">
+                  <img
+                    src="img/support-1.webp"
+                    alt="Ilustracja wątroby, obok informacja o oczyszczaniu, czyli detoksykacji wątroby."
+                    class="es-support__icon es-support__icon--big"
+                  />
+                  <div class="es-support__text-wrapper">
+                    <p class="es-support__subtitle">
+                      wątroby, w tym detoksykcji <sup>3</sup>
+                    </p>
+                    <div class="es-support__description">
+                      <p class="es-support__desc">
+                        Cholina wspomaga funkcje wątroby, takie jak proces
+                        detoksykacji organizmu.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="es-support__content">
+              <div class="es-support__items">
+                <div class="es-support__item es-support__item--single">
+                  <img
+                    src="img/support-2.webp"
+                    alt="Ilustracja komórek, obok informacja, że cholina jest potrzebna do utrzymania prawidłowego funkcjonowania wątroby."
+                    class="es-support__icon es-support__icon--big"
+                  />
+                  <div class="es-support__text-wrapper">
+                    <p class="es-support__subtitle">
+                      metabolizm tłuszczów<sup>1</sup>
+                    </p>
+                    <div class="es-support__description">
+                      <p class="es-support__desc">
+                        Cholina wspomaga transportowanie tłuszczów
+                        i&nbsp;cholesterolu w organizmie.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="es-support__content">
+              <div class="es-support__items">
+                <div class="es-support__item es-support__item--single">
+                  <img
+                    src="img/support-3.webp"
+                    alt="Ilustracja tarczy, obok informacja jak suplement na wątrobę i przeciwutleniacze, witaminy C i E, wpływają na wolne rodniki. "
+                    class="es-support__icon es-support__icon--big"
+                  />
+                  <div class="es-support__text-wrapper">
+                    <p class="es-support__subtitle">
+                      ochrona komórek przed stresem oksydacyjnym<sup>5</sup>
+                    </p>
+                    <div class="es-support__description">
+                      <p class="es-support__desc">
+                        Zawiera potężne antyoksydanty, witaminę C i E, aby
+                        chronić Twój organizm przed nadmiarem wolnych rodników.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+
+      <div id="stosowanie" class="es-dosage">
+        <div class="es-dosage__btn">
+          <p class="es-dosage__title">Stosowanie</p>
+          <p class="es-dosage__arrow">Rozwiń &darr;</p>
+        </div>
+        <div class="es-dosage__mainCtn es-hide">
+          <div class="es-dosage__wrapper">
+            <p class="es-dosage__text">
+              Zalecana dawka dzienna dla dorosłych to 2 kapsułki raz dziennie.
+              Opakowanie wystarcza na&nbsp;2-tygodniową kurację.
+            </p>
+          </div>
+          <div class="es-dosage__items">
+            <div class="es-dosage__item">
+              <img
+                src="img/pills.webp"
+                alt="Ile kapsułek twardych Essentia Proactive powinno się brać dziennie?"
+                class="es-dosage__img"
+              />
+              <div class="es-dosage__content">
+                <p class="es-dosage__desc">
+                  2&nbsp;kapsułki<br />
+                  dziennie
+                </p>
+              </div>
+            </div>
+            <div class="es-dosage__item">
+              <img
+                src="img/cal.webp"
+                alt="Na jak długo starczy jedno opakowanie suplementu na wątrobę Essentia Proactive?"
+                class="es-dosage__img"
+              />
+              <div class="es-dosage__content">
+                <p class="es-dosage__desc">
+                  opakowanie<br />
+                  na 2 tyg.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sklad" class="es-comp">
+        <div class="es-comp__btn es-comp__btn">
+          <p class="es-comp__title">Unikalny skład<sup>4</sup></p>
+          <p class="es-comp__arrow">Rozwiń &darr;</p>
+        </div>
+        <div class="es-comp__hiddenCtn es-hide">
+          <div class="es-comp__content es-comp__content--mobile">
+            <div class="es-comp__texts">
+              <p class="es-comp__text">
+                Zawartość składników w zalecanej porcji dziennej <br />
+                (2 kapsułki twarde)
+              </p>
+            </div>
+
+            <div class="es-comp__wrapper">
+              <div class="es-comp__mg">
+                <p class="es-comp__text">170 mg choliny</p>
+                <p class="es-comp__text">24 mg Witaminy C</p>
+                <p class="es-comp__text">3,6 mg Witaminy E</p>
+              </div>
+              <img src="img/cholina.webp" alt="cholina" class="es-comp__img" />
+            </div>
+            <div class="es-comp__items">
+              <div class="es-comp__item">
+                <img
+                  src="img/comp-1.webp"
+                  alt="Suplement diety Essentia Proactive to produkt wegański."
+                  class="es-comp__icon"
+                />
+                <p class="es-comp__desc">Wegański</p>
+              </div>
+              <div class="es-comp__item">
+                <img
+                  src="img/comp-2.webp"
+                  alt="Suplement diety Essentia Proactive nie zawiera glutenu."
+                  class="es-comp__icon"
+                />
+                <p class="es-comp__desc">Bez glutenu</p>
+              </div>
+              <div class="es-comp__item">
+                <img
+                  src="img/comp-3.webp"
+                  alt="Suplement diety Essentia Proactive nie zawiera laktozy."
+                  class="es-comp__icon"
+                />
+                <p class="es-comp__desc">Bez laktozy</p>
+              </div>
+            </div>
+          </div>
+          <div class="es-comp__content es-comp__content--desktop">
+            <div class="es-comp__texts">
+              <p class="es-comp__text">
+                Zawartość składników w zalecanej porcji dziennej <br />
+                (2 kapsułki twarde)
+              </p>
+            </div>
+            <div class="es-comp__secondCtn">
+              <div class="es-comp__mg">
+                <p class="es-comp__text">170 mg choliny</p>
+                <p class="es-comp__text">24 mg Witaminy C</p>
+                <p class="es-comp__text">3,6 mg Witaminy E</p>
+              </div>
+              <div>
+                <img
+                  src="img/cholina.webp"
+                  alt="cholina"
+                  class="es-comp__img"
+                />
+              </div>
+            </div>
+            <div class="es-comp__texts">
+              <div class="es-comp__items">
+                <div class="es-comp__item">
+                  <img
+                    src="img/comp-1.webp"
+                    alt="Suplement diety Essentia Proactive to produkt wegański."
+                    class="es-comp__icon"
+                  />
+                  <p class="es-comp__desc">Wegański</p>
+                </div>
+                <div class="es-comp__item">
+                  <img
+                    src="img/comp-2.webp"
+                    alt="Suplement diety Essentia Proactive nie zawiera glutenu."
+                    class="es-comp__icon"
+                  />
+                  <p class="es-comp__desc">Bez glutenu</p>
+                </div>
+                <div class="es-comp__item">
+                  <img
+                    src="img/comp-3.webp"
+                    alt="Suplement diety Essentia Proactive nie zawiera laktozy."
+                    class="es-comp__icon"
+                  />
+                  <p class="es-comp__desc">Bez laktozy</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="preparaty" class="es-table">
+        <p class="es-table__title">Poznaj produkty z rodziny Essentiale</p>
+        <div class="es-table__wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th class="es-table__emptyColumn"></th>
+                <th class="es-table__green--top">
+                  <img
+                    class="es-table__img"
+                    src="img/product-1.webp"
+                    alt="Wspieraj proaktywnie swoją wątrobę; kup Essentia Proactive 30 kapsułek (5902502403318) w aptece internetowej Melissa."
+                  />
+                  <p class="es-table__name es-table__name--green">
+                    Essentia Proactive
+                  </p>
+                </th>
+                <th></th>
+                <th class="es-table__orange--topLeft">
+                  <img
+                    class="es-table__img"
+                    src="img/product-2.webp"
+                    alt="Kup kapsułki twarde Essentiale Forte, 50 kapsułek, na poprawę apetytu w aptece internetowej Melissa."
+                  />
+                  <p class="es-table__name es-table__name--orange">
+                    Essentiale Forte
+                  </p>
+                </th>
+                <th class="es-table__orange--topRight">
+                  <img
+                    class="es-table__img"
+                    src="img/product-3.webp"
+                    alt="Lek Essentiale Max, 30 kapsułek, to preparat na wątrobę dostępny bez recepty, który kupisz w aptece internetowej Melissa."
+                  />
+                  <p class="es-table__name es-table__name--red">
+                    Essentiale Max
+                  </p>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rodzaj produktu</td>
+                <td class="es-table__green--sides">Suplement diety</td>
+                <td class="es-table__emptyColumn"></td>
+                <td class="es-table__orange--sideLeft">Lek bez recepty</td>
+                <td class="es-table__orange--sideRight">Lek bez recepty</td>
+              </tr>
+              <tr>
+                <td>Postać</td>
+                <td class="es-table__green--sides">Kapsułki twarde</td>
+                <td class="es-table__emptyColumn"></td>
+                <td class="es-table__orange--sideLeft">Kapsułki twarde</td>
+                <td class="es-table__orange--sideRight">Kapsułki twarde</td>
+              </tr>
+              <tr>
+                <td>Obszar działania</td>
+                <td class="es-table__green--sides">
+                  Wsparcie prawidłowego działania zdrowej wątroby na co dzień
+                </td>
+                <td class="es-table__emptyColumn"></td>
+                <td
+                  class="es-table__orange--sideLeft es-table__orange--sideRight"
+                  colspan="2"
+                >
+                  Leczenie chorób wątroby. Zmniejsza subiektywne dolegliwości,
+                  takie jak: brak apetytu, uczucie ucisku w prawym nadbrzuszu
+                  spowodowane uszkodzeniem wątroby w wyniku nieprawidłowej
+                  diety, działania substancji toksycznych lub w przebiegu
+                  zapalenia wątroby<sup>8</sup>
+                </td>
+                <!-- <td class="es-table__orange--sideRight">
+                  
+                </td> -->
+              </tr>
+              <tr>
+                <td>Skład</td>
+                <td class="es-table__green--sides">
+                  Cholina, witamina C, witamina E
+                </td>
+                <td class="es-table__emptyColumn"></td>
+                <td class="es-table__orange--sideLeft">
+                  300mg fosfolipidów niezbędnych (EPL)
+                </td>
+                <td class="es-table__orange--sideRight">
+                  600mg fosfolipidów niezbędnych (EPL)
+                </td>
+              </tr>
+              <tr>
+                <td>Zawartość opakowania</td>
+                <td class="es-table__green--sides">30 kapsułek</td>
+                <td class="es-table__emptyColumn"></td>
+                <td class="es-table__orange--sideLeft">50 kapsułek</td>
+                <td class="es-table__orange--sideRight">30 kapsułek</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="es-table__green--bottom">
+                  <a href="#" target="_blank" class="es-table__link">Sprawdź</a>
+                </td>
+                <td class="es-table__emptyColumn"></td>
+                <td class="es-table__orange--bottomLeft">
+                  <a href="#" target="_blank" class="es-table__link">Sprawdź</a>
+                </td>
+                <td class="es-table__orange--bottomRight">
+                  <a href="#" target="_blank" class="es-table__link">Sprawdź</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="styl" class="es-info">
+        <details>
+          <summary class="es-dosage__btn es-info__btn">
+            <p class="es-dosage__title">Czy wiesz, że?</p>
+            <p class="es-dosage__arrow">Rozwiń &darr;</p>
+          </summary>
+          <div id="jak-dbac" class="swiper swiper2">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div id="aktywny" class="es-info__slide">
+                  <div class="es-info__down">
+                    <div class="es-info__wrapper">
+                      <div class="es-info__content">
+                        <p class="es-info__title">Stosuj zbilansowaną dietę</p>
+                        <p class="es-info__text">
+                          Stosuj się do zasad zdrowego żywienia i&nbsp;unikaj
+                          produktów wysokoprzetworzonych, jak również bogatych
+                          w&nbsp;cukry proste oraz nasycone kwasy
+                          tłuszczowe.<sup>6</sup>
+                        </p>
+                      </div>
+                      <img
+                        src="img/infoa-1.webp"
+                        alt="Zbliżenie rąk kobiety w kuchni, która przygotowuje smoothie; dieta dieta oczyszczająca wątrobę jest bogata w warzywa i owoce."
+                        class="es-info__asset es-info__asset--mobile"
+                      />
+                      <img
+                        src="img/infoa-1-dt.webp"
+                        alt="Zbliżenie rąk kobiety w kuchni, która przygotowuje smoothie; dieta dieta oczyszczająca wątrobę jest bogata w warzywa i owoce."
+                        class="es-info__asset es-info__asset--desktop"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div id="metabolizm" class="es-info__slide">
+                  <div class="es-info__down">
+                    <div class="es-info__wrapper">
+                      <div class="es-info__content">
+                        <p class="es-info__title">
+                          Utrzymuj prawidłową masę ciała
+                        </p>
+                        <p class="es-info__text">
+                          Nadwaga lub otyłość mogą obciążać wątrobę, prowadząc
+                          do stłuszczenia wątroby. Aby tego uniknąć, utrzymuj
+                          właściwą masę ciała.<sup>6</sup>
+                        </p>
+                      </div>
+                      <img
+                        src="img/infoa-2.webp"
+                        alt="Mężczyzna mierzy obwód w pasie centymetrem; otyłość a wątroba, czy wiesz, jak nadwaga wpływa na zdrowie tego kluczowego organu?"
+                        class="es-info__asset es-info__asset--mobile"
+                      />
+                      <img
+                        src="img/infoa-2-dt.webp"
+                        alt="Mężczyzna mierzy obwód w pasie centymetrem; otyłość a wątroba, czy wiesz, jak nadwaga wpływa na zdrowie tego kluczowego organu?"
+                        class="es-info__asset es-info__asset--desktop"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div id="energia" class="es-info__slide">
+                  <div class="es-info__down">
+                    <div class="es-info__wrapper">
+                      <div class="es-info__content">
+                        <p class="es-info__title">
+                          Uprawiaj regularną <br />
+                          aktywność fizyczną
+                        </p>
+                        <p class="es-info__text">
+                          Regularne ćwiczenia pomagają utrzymać wagę
+                          i&nbsp;uniknąć chorób wątroby. Poza tym to świetny
+                          sposób na zachowanie zdrowia fizycznego
+                          i&nbsp;psychicznego.
+                        </p>
+                      </div>
+                      <img
+                        src="img/infoa-3.webp"
+                        alt="Grupa ludzi ćwiczy w parku; nie tylko dieta wspomaga oczyszczanie wątroby, również zdrowy styl życia dodaje energii."
+                        class="es-info__asset es-info__asset--mobile"
+                      />
+                      <img
+                        src="img/infoa-3-dt.webp"
+                        alt="Grupa ludzi ćwiczy w parku; nie tylko dieta wspomaga oczyszczanie wątroby, również zdrowy styl życia dodaje energii."
+                        class="es-info__asset es-info__asset--desktop"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div id="detoks" class="es-info__slide"></div>
+                <div class="es-info__down es-info__down--doctor">
+                  <div class="es-info__wrapper">
+                    <div class="es-info__content es-info__content--doctor">
+                      <p class="es-info__title">
+                        Skonsultuj się <br />
+                        z lekarzem
+                      </p>
+                      <p class="es-info__text es-info__text--doctor">
+                        Jeśli masz jakiekolwiek wątpliwości dotyczące swojego
+                        stanu zdrowia skonsultuj się z lekarzem lub farmaceutą.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </details>
+      </div>
+
+      <div class="es-disclaimer">
+        <p class="es-disclaimer__title">Przypisy</p>
+        <ul class="es-disclaimer__list">
+          <li class="es-disclaimer__item">
+            1. Opinion of the Scientific Panel on Dietetic Products, Nutrition
+            and Allergies: Contribution to normal psychological functions (ID
+            1501) 2011;9(4):2056
+          </li>
+          <li class="es-disclaimer__item">
+            2. Cholina zawarta w suplemencie diety pomaga w utrzymaniu
+            prawidłowego funkcjonowania wątroby i wspiera utrzymanie
+            prawidłowego metabolizmu tłuszczów. Opinion of the Scientific Panel
+            on Dietetic Products, Nutrition and Allergies: Contribution to
+            normal psychological functions (ID 3186) EFSA Journal
+            2011;9(4):2056; Witamina C i witamina E pomagają w ochronie komórek
+            przed stresem oksydacyjnym. Opinion of the Scientific Panel on
+            Dietetic Products, Nutrition and Allergies: Contribution to normal
+            psychological functions (ID 129, 138, 143, 148, 3331, ID 160, 162,
+            1947), EFSA Journal 2010;8(10):1807.
+          </li>
+          <li class="es-disclaimer__item">
+            3.
+            https://www.mp.pl/pacjent/gastrologia/choroby/watroba/50948,watroba-budowa-i-funkcje
+            data dostępu 06.03.2023
+          </li>
+          <li class="es-disclaimer__item">
+            4. Jedyny suplement diety zawierający cholinę, wit. C i wit. E.
+            wśród suplementów diety z bazy OTC 03B1 Liver remedies IQVIA
+            ePharmacy tracker+ 03B1 Liver remedies, MAT11/22 OTC
+          </li>
+          <li class="es-disclaimer__item">
+            5. Journal 2010;8(10):1815 Scientific Opinion on the substantiation
+            of health claims related to vitamin C; EFSA Journal 2010;8(10):1816;
+            Scientific Opinion on the substantiation of health claims related to
+            vitamin E
+          </li>
+          <li class="es-disclaimer__item">
+            6. Dieta Polaków a zalecenia – za tłusto, za słono, za słodko -
+            Narodowe Centrum Edukacji Żywieniowej (pzh.gov.pl)
+            https://ncez.pzh.gov.pl/abc-zywienia/dieta-polakow-a-zalecenia-za-tlusto-za-slono-za-slodko/
+            data dostępu: 20.03.2023
+          </li>
+          <li class="es-disclaimer__item">
+            7. Gundermann KJ, Kuenker A, Kuntz E, Droździk M. Activity of
+            essential phospholipids (EPL) from soybean in liver diseases.
+            Pharmacol Rep. 2011;63(3):643-59.
+          </li>
+          <li class="es-disclaimer__item">
+            8. CHPL Essentiale Forte 10.2022 oraz CHPL Essentiale Max 10.2022
+          </li>
+        </ul>
+      </div>
+
+      <div class="es-desc">
+        <p class="es-desc__item">
+          <strong>ESSENTIA PROACTIVE</strong>, suplement diety, kapsułki twarde.
+          Zawartość składników aktywnych w zalecanej porcji dziennej (2
+          kapsułki): 170 mg choliny; 24 mg witaminy C – 30% RWS; 3,6 mg witaminy
+          E – 30% RWS. [RWS – referencyjna wartość spożycia]. Zalecane spożycie:
+          Dorośli - 2 kapsułki dziennie. Cholina wpływa na wsparcie prawidłowego
+          funkcjonowania wątroby. Suplement diety nie może być stosowany jako
+          substytut (zamiennik) zróżnicowanej diety. Prowadzenie zdrowego trybu
+          życia i&nbsp;stosowanie zrównoważonej diety są niezbędne dla
+          zachowania dobrego stanu zdrowia. Kobiety w&nbsp;ciąży, karmiące oraz
+          osoby pozostające pod opieką medyczną nie powinny spożywać tego
+          suplementu diety bez konsultacji z&nbsp;lekarzem. Produkt nie może być
+          stosowany przez osoby uczulone na którykolwiek ze składników
+          preparatu. Podmiot wprowadzający do obrotu: Opella Healthcare Poland
+          Sp. z o.o.
+        </p>
+        <br />
+        <p class="es-desc__item">
+          <strong>ESSENTIALE FORTE</strong>, kapsułki, 300 mg fosfolipidów z
+          nasion sojowych. Wskazania: Roślinny produkt leczniczy stosowany w
+          chorobach wątroby. Zmniejsza dolegliwości, jak: brak apetytu, uczucie
+          ucisku w&nbsp;prawym nadbrzuszu spowodowane uszkodzeniem wątroby w
+          wyniku nieprawidłowej diety, działania substancji toksycznych lub
+          zapalenia wątroby. {ChPL 10.2022} Podmiot odpowiedzialny: Opella
+          Healthcare Poland Sp. z o.o., grupa Sanofi
+        </p>
+        <br />
+        <p class="es-desc__item">
+          <strong>ESSENTIALE MAX</strong>, kapsułki, twarde, 600 mg fosfolipidów
+          z nasion sojowych. Wskazania: Roślinny produkt leczniczy stosowany
+          w&nbsp;chorobach wątroby. Zmniejsza dolegliwości, jak: brak apetytu,
+          uczucie ucisku w&nbsp;prawym nadbrzuszu spowodowane uszkodzeniem
+          wątroby w&nbsp;wyniku nieprawidłowej diety, działania substancji
+          toksycznych lub zapalenia wątroby. {ChPL 10.2022} Podmiot
+          odpowiedzialny: Opella Healthcare Poland Sp. z o.o., grupa Sanofi
+        </p>
+
+        <br />
+        <p class="es-desc__item">
+          To jest lek. Dla bezpieczeństwa stosuj go zgodnie z ulotką dołączoną
+          do opakowania. Nie przekraczaj maksymalnej dawki leku.
+          W&nbsp;przypadku wątpliwości skonsultuj się z&nbsp;lekarzem lub
+          farmaceutą.
+        </p>
+      </div>
+      <div class="es-disclaimer">
+        <div class="es-disclaimer__bottom">
+          <p class="es-disclaimer__mat">MAT-PL-2300611-2.0-04.2023</p>
+          <img
+            src="./img/logo_sanofi.webp"
+            alt="sanofi"
+            class="es-disclaimer__sanofi"
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      const hiddenContent = document.querySelector('.es-comp__hiddenCtn');
+      const toggleBtn = document.querySelector('.es-comp__btn');
+      const hiddenDosage = document.querySelector('.es-dosage__mainCtn');
+      const toggleBtnDosage = document.querySelector('.es-dosage__btn');
+
+      const toggleContent = (ctn) => {
+        ctn.classList.toggle('es-hide');
+      };
+
+      toggleBtn.addEventListener('click', () => toggleContent(hiddenContent));
+      toggleBtnDosage.addEventListener('click', () =>
+        toggleContent(hiddenDosage),
+      );
+    </script>
+    <script defer>
+      $('.es-nav__link').click(function () {
+        var idik = $(this).attr('data-href');
+        $('html, body').animate({
+          scrollTop: $(idik).offset().top - 110 + 'px',
+        });
+      });
+    </script>
+  </body>
+</html>
