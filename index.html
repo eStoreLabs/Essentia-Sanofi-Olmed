@@ -369,7 +369,7 @@
   }
   #es-essentia.es-essentia .es-dosage {
     padding: 12px;
-    background: url(img/slide-bg.webp);
+    background: url(https://estorelabs.github.io/Essentia-Sanofi-Olmed/img/slide-bg.webp);
     background-size: cover;
     display: flex;
     flex-direction: column;
@@ -1382,12 +1382,12 @@
   </div>
 
   <div id="styl" class="es-info">
-    <details>
-      <summary class="es-dosage__btn es-info__btn">
+    <div class="details">
+      <div class="es-dosage__btn es-info__btn">
         <p class="es-dosage__title">Czy wiesz, że?</p>
         <p class="es-dosage__arrow">Rozwiń &darr;</p>
-      </summary>
-      <div id="jak-dbac" class="swiper swiper2">
+      </div>
+      <div id="jak-dbac" class="swiper swiper2 es-hide">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div id="aktywny" class="es-info__slide">
@@ -1494,7 +1494,7 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
       </div>
-    </details>
+    </divdetails>
   </div>
 
   <div class="es-disclaimer">
@@ -1596,6 +1596,8 @@
   const toggleBtn = document.querySelector('.es-comp__btn');
   const hiddenDosage = document.querySelector('.es-dosage__mainCtn');
   const toggleBtnDosage = document.querySelector('.es-dosage__btn');
+  const toggleSwiper = document.querySelector('.details');
+  const hiddenDetails = document.querySelector('.swiper2');
 
   const toggleContent = (ctn) => {
     ctn.classList.toggle('es-hide');
@@ -1603,6 +1605,7 @@
 
   toggleBtn.addEventListener('click', () => toggleContent(hiddenContent));
   toggleBtnDosage.addEventListener('click', () => toggleContent(hiddenDosage));
+  toggleSwiper.addEventListener('click', () => toggleContent(hiddenDetails));
 </script>
 <script defer>
   $('.es-nav__link').click(function () {
