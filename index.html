@@ -386,10 +386,12 @@
     justify-content: space-between;
     align-items: center;
     background: url(https://estorelabs.github.io/Essentia-Sanofi-Olmed/img/slide-bg.webp);
+    background-size: cover;
     padding: 14px;
   }
   #es-essentia.es-essentia .es-dosage__btn2 {
     background: url(https://estorelabs.github.io/Essentia-Sanofi-Olmed/img/slide-bg.webp);
+    background-size: cover;
     padding: 14px;
     cursor: pointer;
   }
@@ -1552,14 +1554,7 @@
 
 <div class="es-video">
   <div class="es-video__wrapper">
-    <video class="es-video__player es-video__iframe" src="https://estorelabs.github.io/Essentia-Sanofi-Olmed/video/Essentia.mp4" id="player"></video>
-    <div class="es-video__play-button">
-      <img
-        class="es-video__image-icon"
-        src="https://estorelabs.github.io/Essentia-Sanofi-Olmed/img/video-icon.png"
-        alt=""
-      />
-    </div>
+    <div class="es-video__player es-video__iframe"></div>
   </div>
 
   <div class="es-disclaimer">
@@ -1663,8 +1658,12 @@
   const toggleBtnDosage = document.querySelector('.es-dosage__btn');
   const toggleSwiper = document.querySelector('.es-dosage__btn2');
   const hiddenDetails = document.querySelector('.swiper2');
-  const videoPlayerButton = document.querySelector('.es-video__play-button');
-  const videoPlayer = document.getElementById('player');
+  const videoContainer = document.querySelector('.es-video__wrapper');
+  const video = `
+    <iframe class="es-video__iframe" width="100%" height="auto" src="https://www.youtube.com/embed/J9jxrPPuBxs" title="Essentia Proactive reklama1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  `;
+  console.log('video: ', video);
+  videoContainer.innerHTML = video;
 
   const toggleContent = (ctn) => {
     ctn.classList.toggle('es-hide');
@@ -1674,16 +1673,6 @@
   toggleBtnDosage.addEventListener('click', () => toggleContent(hiddenDosage));
   toggleSwiper.addEventListener('click', () => toggleContent(hiddenDetails));
 
-
-
-  videoPlayerButton.addEventListener('click', function () {
-    document.getElementById('player').play();
-    videoPlayerButton.style.display = 'none';
-  });
-
-  videoPlayer.addEventListener('ended', function () {
-    videoPlayerButton.style.display = 'block';
-  });
 </script>
 <script defer>
   $('.es-nav__link').click(function () {
