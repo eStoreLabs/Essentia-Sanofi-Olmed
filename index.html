@@ -1116,19 +1116,19 @@
 
   <div class="es-nav">
     <div class="es-nav__item">
-      <a class="es-nav__link" data-href="#essentia">Odkryj Essentia Proactive</a>
+      <a class="es-nav__link" href="#essentia">Odkryj Essentia Proactive</a>
     </div>
     <div class="es-nav__item">
-      <a class="es-nav__link" data-href="#korzysci">Korzyści dla wątroby</a>
+      <a class="es-nav__link" href="#korzysci">Korzyści dla wątroby</a>
     </div>
     <div class="es-nav__item">
-      <a class="es-nav__link" data-href="#stosowanie">Stosowanie</a>
+      <a class="es-nav__link" href="#stosowanie">Stosowanie</a>
     </div>
     <div class="es-nav__item">
-      <a class="es-nav__link" data-href="#sklad">Składniki</a>
+      <a class="es-nav__link" href="#sklad">Składniki</a>
     </div>
     <div class="es-nav__item">
-      <a class="es-nav__link" data-href="#styl">Zachowaj swój styl życia</a>
+      <a class="es-nav__link" href="#styl">Zachowaj swój styl życia</a>
     </div>
   </div>
 
@@ -1672,12 +1672,4 @@
   toggleBtnDosage.addEventListener('click', () => toggleContent(hiddenDosage));
   toggleSwiper.addEventListener('click', () => toggleContent(hiddenDetails));
 
-</script>
-<script defer>
-  $('.es-nav__link').click(function () {
-    var idik = $(this).attr('data-href');
-    $('html, body').animate({
-      scrollTop: $(idik).offset().top - 110 + 'px',
-    });
-  });
 </script>
