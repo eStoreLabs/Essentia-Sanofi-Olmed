@@ -181,6 +181,8 @@
   #es-essentia.es-essentia .es-kv__title sup {
     vertical-align: top;
     font-size: 26px;
+    line-height: inherit;
+    position: static;
   }
   #es-essentia.es-essentia .es-kv__packshot {
     position: absolute;
@@ -213,6 +215,8 @@
   }
   #es-essentia.es-essentia .es-features__text sup {
     vertical-align: top;
+    line-height: inherit;
+    position: static;
   }
   #es-essentia.es-essentia .es-articles {
     margin: 20px 0;
@@ -687,6 +691,7 @@
       100% 100%;
     background-size: cover;
     padding: 14px;
+    margin: 50px 0;
   }
   #es-essentia.es-essentia .es-comp__content--desktop {
     display: none;
@@ -775,7 +780,8 @@
   }
   #es-essentia.es-essentia .es-disclaimer__bottom {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
   }
   #es-essentia.es-essentia .es-disclaimer__mat {
@@ -788,30 +794,32 @@
     padding: 5px 10px;
     font-weight: 500;
     font-size: 25px;
-    margin-right: 20px;
     text-transform: uppercase;
     border: 2px solid black;
   }
 
-  /* #es-essentia.es-essentia .es-video {
-  min-width: 320px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-#es-essentia.es-essentia .es-video__videoCnt {
-  width: 100%;
-  margin: 0 auto;
-  padding: 40px 0;
-}
-#es-essentia.es-essentia .es-video__iframe {
-  width: 100%;
-  min-height: 450px;
-  z-index: 1;
-} */
+  #es-essentia.es-essentia .es-features,
+  #es-essentia.es-essentia .es-support,
+  #es-essentia.es-essentia .es-dosage, 
+  #es-essentia.es-essentia .es-comp, 
+  #es-essentia.es-essentia .es-info {
+    scroll-margin-top: 14rem;
+  }    
 
   @media screen and (min-width: 768px) {
+    #es-essentia.es-essentia .es-features,
+    #es-essentia.es-essentia .es-support,
+    #es-essentia.es-essentia .es-dosage, 
+    #es-essentia.es-essentia .es-comp, 
+    #es-essentia.es-essentia .es-info {
+      scroll-margin-top: 14rem;
+    } 
+    #es-essentia.es-essentia .es-disclaimer__bottom {
+      justify-content: space-between;
+    }
+    #es-essentia.es-essentia .es-disclaimer__suplement {
+      margin-right: 20px;
+    }
     #es-essentia.es-essentia .es-video__image-icon {
       width: 106px;
       height: 106px;
@@ -853,7 +861,6 @@
       gap: 14px 0;
     }
     #es-essentia.es-essentia .es-nav__item {
-      padding: 8px;
       flex: 1;
       border: 2px solid #506f13;
       display: flex;
@@ -872,6 +879,8 @@
       color: #fff;
     }
     #es-essentia.es-essentia .es-nav__link {
+      min-width: 150px;
+      padding: 8px;
       font-weight: 500;
       text-align: center;
       color: #000;
@@ -1442,7 +1451,7 @@
       <div class="es-dosage__btn2 es-dosage__btn--right es-info__btn">
         <p class="es-dosage__arrow">Rozwiń &darr;</p>
       </div>
-      <div id="jak-dbac" class="swiper swiper2 es-hide">
+      <div id="jak-dbac" class="swiper es-swiper2 es-hide">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
             <div id="aktywny" class="es-info__slide">
@@ -1556,6 +1565,7 @@
   <div class="es-video__wrapper">
     <div class="es-video__player es-video__iframe"></div>
   </div>
+</div>
 
   <div class="es-disclaimer">
     <p class="es-disclaimer__title">Przypisy</p>
@@ -1644,12 +1654,11 @@
   const hiddenDosage = document.querySelector('.es-dosage__mainCtn');
   const toggleBtnDosage = document.querySelector('.es-dosage__btn');
   const toggleSwiper = document.querySelector('.es-dosage__btn2');
-  const hiddenDetails = document.querySelector('.swiper2');
-  const videoContainer = document.querySelector('.es-video__wrapper');
-  const video = `
+  const hiddenDetails = document.querySelector('.es-swiper2');
+
+  document.querySelector('.es-video__wrapper').innerHTML = `
     <iframe class="es-video__iframe" width="100%" height="auto" src="https://www.youtube.com/embed/J9jxrPPuBxs" title="Essentia Proactive reklama1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   `;
-  videoContainer.innerHTML = video;
 
   const toggleContent = (ctn) => {
     ctn.classList.toggle('es-hide');
