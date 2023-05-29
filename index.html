@@ -1561,12 +1561,6 @@
     </div>
   </div>
 
-<div class="es-video">
-  <div class="es-video__wrapper">
-    <div class="es-video__player es-video__iframe"></div>
-  </div>
-</div>
-
   <div class="es-disclaimer">
     <p class="es-disclaimer__title">Przypisy</p>
     <ul class="es-disclaimer__list">
@@ -1656,9 +1650,19 @@
   const toggleSwiper = document.querySelector('.es-dosage__btn2');
   const hiddenDetails = document.querySelector('.es-swiper2');
 
-  document.querySelector('.es-video__wrapper').innerHTML = `
-    <iframe class="es-video__iframe" width="100%" height="auto" src="https://www.youtube.com/embed/J9jxrPPuBxs" title="Essentia Proactive reklama1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  `;
+
+  try {
+    document.querySelector('.es-info').insertAdjacentHTML('afterend', `
+    <div class="es-video">
+      <div class="es-video__wrapper">
+        <iframe class="es-video__iframe" width="100%" height="auto" src="https://www.youtube.com/embed/J9jxrPPuBxs" title="Essentia Proactive reklama1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </div>
+  `);
+  } catch {
+    console.log('There is no div for video insertion');
+  }
+  
 
   const toggleContent = (ctn) => {
     ctn.classList.toggle('es-hide');
